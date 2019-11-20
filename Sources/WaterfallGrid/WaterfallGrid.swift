@@ -42,7 +42,7 @@ public struct WaterfallGrid<Data, ID, Content>: View where Data : RandomAccessCo
     private func grid(in geometry: GeometryProxy) -> some View {
         let columnWidth = self.columnWidth(columns: style.columns, spacing: style.spacing, padding: style.padding,
                                            scrollDirection: style.scrollDirection, geometrySize: geometry.size)
-        return ScrollView(style.scrollDirection) {
+        return ScrollView(style.scrollDirection, showsIndicators: false) {
             ZStack(alignment: .topLeading) {
                 ForEach(data, id: self.dataId) { element in
                     self.content(element)
